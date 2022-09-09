@@ -20,9 +20,8 @@ const CoinbaseWallet = new WalletLinkConnector({
 
 function App() {
   // Add variables
-  // const [account, setAccount] = useState("");
   const [contractData, setContractData] = useState("");
-  const { activate, d, account } = useWeb3React();
+  const { activate, deactivate, account } = useWeb3React();
 
   const loadWeb3 = async () => {
     // if (window.ethereum) {
@@ -60,6 +59,8 @@ function App() {
       );
     }
   };
+
+
 
   // const loadWeb3 = async () => {
   //   if (window.ethereum) {
@@ -103,7 +104,8 @@ function App() {
       <div className="cl">
         <Navbar
           account={account}
-          connectWallet={connectWallet}
+          connectWallet={connectWallet} 
+          deactivate={deactivate}
         />
         <Route exact path="/" component={Home} />
         <Switch>

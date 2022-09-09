@@ -33,6 +33,7 @@ function PetDetails({ account, contractData }) {
 
   useEffect(() => {
     if (petId) {
+      console.log(petId)
       getMetadata();
       getImage();
     }
@@ -59,11 +60,13 @@ function PetDetails({ account, contractData }) {
     // console.log(account)
     // const account = account
     // alert('wisdom')
+    const ask = account;
     try {
-      alert(account)
+      console.log(contractData)
       const data = await contractData.methods
         .mintPetNFT(`https://${petId}`)
-        .send({ from: account });
+        .send({ from: ask });
+      console.log(data)
 
       setCodeHash(data);
     } catch (err) {

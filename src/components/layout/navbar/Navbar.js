@@ -19,7 +19,7 @@ import { StylesProvider } from '@material-ui/core/styles'
 import './Navbar.css'
 import logo from '../../../images/logo.jpg'
 
-export const Navbar = withRouter(({ account, connectWallet }) => {
+export const Navbar = withRouter(({ account, connectWallet, deactivate }) => {
   const [anchorEl, setAnchorEl] = useState(null)
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null)
 
@@ -131,7 +131,8 @@ export const Navbar = withRouter(({ account, connectWallet }) => {
                   </Button>
                   <Button
                     variant="contained"
-                    className="connected-btn"
+                    className="connected-btn" 
+                    onClick={deactivate}
                     endIcon={<VerifiedUserSharpIcon />}
                   >
                     Connected/Signout
